@@ -1,63 +1,67 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Praktikum Progdas 2025</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hasil Pendaftaran Praktikum Progdas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-    <body>
-      <header>
-            <h2 class="text-center">
-                Praktikum Progdas: Modul 8 GUI PHP
-            </h2>
-      </header>
-      <div class="wrapper">
-            <div class="container bg-white">
-                  <h2 class="container-header text-center">Hasil Data</h2>
-                  <table class="form">
-                    <tr>
-                      <td>Nama Mahasiswa </td> 
-                      <td>: <?php echo $nama = $_POST['nama']; ?></td> 
-                    </tr>
-                    <tr>
-                      <td>Nim Mahasiswa</td> 
-                      <td>: <?php echo $nim = $_POST['nim']; ?></td> 
-                    </tr>
-                    <tr>                  
-                      <td><br> 
-                      <?php $jk = $_POST['jk'];
-                      if ($jk == 'laki') {
-                          $hasil = 'Selamat datang mas '.$nama; 
-                          } else {
-                          $hasil = 'Selamat datang mbak '.$nama;
-                          }       
-                          echo $hasil;
-                      ?>
-                          </td> 
-                    </tr>
-                    <tr>
-                      <td>
-                        Peminatan anda adalah : <br>
-                        <?php 
-                        if (isset($_POST['check1'])) {  
-                          echo $_POST['check1']." <br/>";  
-                            }  
-                        if (isset($_POST['check2'])) {  
-                          echo $_POST['check2']." <br/>";  
-                            }  
-                        if (isset($_POST['check3'])) {  
-                          echo $_POST['check3']." <br/>";  
-                            }  
-                        if (isset($_POST['check4'])) {  
-                          echo $_POST['check4']." <br/>";  
-                            }  
-                        ?>
-                      </td>
-                    </tr>
-                  </table>
-            </div>
-      </div>      
-     </body>
+
+<body>
+
+  <header class="text-center py-4 bg-primary text-white shadow-sm">
+    <h2>Hasil Pendaftaran Praktikum Progdas</h2>
+  </header>
+
+  <div class="wrapper my-4">
+    <div class="container bg-white p-4 rounded-4 shadow-lg" style="max-width: 700px;">
+      <h3 class="text-center mb-4 text-primary fw-semibold">Data Anda</h3>
+
+      <table class="table table-borderless">
+        <tr>
+          <td>
+            <?php
+            $nama = $_POST['nama'];
+            $jk   = $_POST['jk'];
+
+            if ($jk === "laki") {
+              echo "Selamat datang mas $nama";
+            } else {
+              echo "Selamat datang mbak $nama";
+            }
+            ?>
+          </td>
+        </tr>
+        <tr>
+          <td>Nama Lengkap</td>
+          <td>: <?php echo $_POST['nama']; ?></td>
+        </tr>
+
+        <tr>
+          <td>NIM</td>
+          <td>: <?php echo $_POST['nim']; ?></td>
+        </tr>
+
+        <tr>
+          <td>Angkatan</td>
+          <td>: <?php echo $_POST['angkatan']; ?></td>
+        </tr>
+      </table>
+
+      <div class="text-center mt-4">
+        <a href="index.php" class="btn btn-secondary px-4">Kembali</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="text-center py-3 bg-light border-top mt-5">
+    <p class="mb-0 text-secondary small">© 2025 Kampus Kita | Dibuat untuk Praktikum Progdas</p>
+  </footer>
+
+</body>
+
 </html>
